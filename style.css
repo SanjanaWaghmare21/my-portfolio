@@ -1,0 +1,89 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #0f172a; /* dark background */
+  color: #e5e7eb; /* white text */
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(15, 23, 42, 0.8); /* transparent navbar */
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero span {
+  background: linear-gradient(45deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #38bdf8, #6366f1);
+  color: white;
+  cursor: pointer;
+}
+
+/* Sections */
+.section {
+  padding: 100px 50px;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+/* Project Cards */
+.project-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.project-card a {
+  color: #38bdf8;
+  text-decoration: none;
+}
