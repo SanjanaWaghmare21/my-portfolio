@@ -1,18 +1,28 @@
-const form = document.getElementById("contactForm");
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  let nameInput = document.querySelector("input[type='text']");
+  let emailInput = document.querySelector("input[type='email']");
+  let messageInput = document.querySelector("textarea");
 
-  const name = form.querySelector("input[type='text']").value;
-  const email = form.querySelector("input[type='email']").value;
-  const message = form.querySelector("textarea").value;
+  let name = nameInput.value.trim();
+  let email = emailInput.value.trim();
+  let message = messageInput.value.trim();
 
   if (name === "" || email === "" || message === "") {
     alert("Please fill all fields!");
     return;
   }
 
-  alert("Thank you! Your message has been sent successfully 😊");
+  if (!email.includes("@") || !email.includes(".")) {
+    alert("Enter a valid email address!");
+    return;
+  }
 
-  form.reset();
+  alert("Form submitted successfully!");
+
+  // ✅ Clear form after submit
+  nameInput.value = "";
+  emailInput.value = "";
+  messageInput.value = "";
 });
