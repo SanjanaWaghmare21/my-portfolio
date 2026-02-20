@@ -219,3 +219,21 @@ body {
   color: white;
   font-family: 'Poppins', sans-serif;
 }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease-in-out;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
