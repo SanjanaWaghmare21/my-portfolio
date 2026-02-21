@@ -55,3 +55,24 @@ window.addEventListener('scroll', () => {
 document.querySelector("button").addEventListener("click", () => {
   console.log("Button clicked!");
 });
+
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.querySelector("input[type='text']").value.trim();
+  const email = document.querySelector("input[type='email']").value.trim();
+  const message = document.querySelector("textarea").value.trim();
+
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  if (!email.includes("@")) {
+    alert("Please enter a valid email address!");
+    return;
+  }
+
+  alert("Message sent successfully!");
+});
