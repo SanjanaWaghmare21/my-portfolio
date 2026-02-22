@@ -1,13 +1,14 @@
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+// ================= CONTACT FORM VALIDATION =================
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  let nameInput = document.querySelector("input[type='text']");
-  let emailInput = document.querySelector("input[type='email']");
-  let messageInput = document.querySelector("textarea");
+  const nameInput = document.querySelector("input[type='text']");
+  const emailInput = document.querySelector("input[type='email']");
+  const messageInput = document.querySelector("textarea");
 
-  let name = nameInput.value.trim();
-  let email = emailInput.value.trim();
-  let message = messageInput.value.trim();
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
 
   if (name === "" || email === "" || message === "") {
     alert("Please fill all fields!");
@@ -15,64 +16,75 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   }
 
   if (!email.includes("@") || !email.includes(".")) {
-    alert("Enter a valid email address!");
+    alert("Please enter a valid email address!");
     return;
   }
 
-  alert("Form submitted successfully!");
+  alert("Message sent successfully!");
 
-  // ✅ Clear form after submit
+  // Clear form
   nameInput.value = "";
   emailInput.value = "";
   messageInput.value = "";
 });
 
 
-// Smooth scrolling for navbar links
+// ================= SMOOTH SCROLL =================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
     });
   });
 });
 
-// Scroll animation
-const sections = document.querySelectorAll('.section');
 
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
+// ================= SCROLL ANIMATION =================
+const animatedSections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  animatedSections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const screenHeight = window.innerHeight;
 
     if (sectionTop < screenHeight - 100) {
-      section.classList.add('show');
+      section.classList.add("show");
     }
   });
 });
 
-document.querySelector("button").addEventListener("click", () => {
-  console.log("Button clicked!");
+
+// ================= ACTIVE NAVBAR LINK =================
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+
+    if (window.scrollY >= sectionTop - 60) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
 });
 
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+// ================= BUTTON CLICK CONSOLE =================
+const heroButton = document.querySelector(".hero button");
 
-  const name = document.querySelector("input[type='text']").value.trim();
-  const email = document.querySelector("input[type='email']").value.trim();
-  const message = document.querySelector("textarea").value.trim();
-
-  if (name === "" || email === "" || message === "") {
-    alert("Please fill all fields!");
-    return;
-  }
-
-  if (!email.includes("@")) {
-    alert("Please enter a valid email address!");
-    return;
-  }
-
-  alert("Message sent successfully!");
-});
+if (heroButton) {
+  heroButton.addEventListener("click", () => {
+    console.log("Hero button clicked!");
+  });
+}
